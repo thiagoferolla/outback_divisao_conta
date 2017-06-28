@@ -44,7 +44,7 @@ export default class Page1 extends Component {
         var newUser = {name:this.state.inputValue, products:[]}
         await this.setState({users:[...this.state.users, newUser]})
         console.log(this.state.users)
-        firebase.database().ref(`table/${this.state.table}`).set({user:this.state.users})
+        firebase.database().ref(`table/${this.state.table}/user`).set(this.state.users)
         this.setState({inputValue:''})
     }
 

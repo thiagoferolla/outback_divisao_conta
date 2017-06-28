@@ -40,7 +40,7 @@ export default class Page2 extends Component{
                             primaryText={product.product} secondaryText={product.preco} disabled={true}
                             rightIcon={<RemoveCircle onClick={()=>this.removeProduct(product)} color={red500}/>}/>
                 }
-            }
+            } return null
         })
     }
 

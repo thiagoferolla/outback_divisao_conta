@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Slider from 'material-ui/Slider';
 import firebase from 'firebase';
 import Final from '../components/user_final';
+import AppBar from '../components/appbar';
 
-export default class Page3 extends React.Component {
+export default class Page3 extends Component {
     state = {
         firstSlider: 0.1,
         users: []
@@ -28,6 +28,8 @@ export default class Page3 extends React.Component {
         return (
             <div>
                 {this.state.users.map(user=><Final user={user} table={this.props.match.params.tableId}/>)}
+                <div style={{height:50}}/>
+                <AppBar page={3}/>
             </div>
         )
     }
