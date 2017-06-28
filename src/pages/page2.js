@@ -33,17 +33,25 @@ export default class Page2 extends Component{
     }
 
     mapProducts = (user)=>{
-        console.log(this.state.products)
         return this.state.products.map((product)=>{
             for (var i=0; i<product.users.length; i++){
                 if (user === product.users[i]){
                     return <ListItem style={{backgroundColor:'white'}}
                             primaryText={product.product} secondaryText={product.preco} disabled={true}
-                            rightIcon={<RemoveCircle color={red500}/>}/>
+                            rightIcon={<RemoveCircle onClick={()=>this.removeProduct(product)} color={red500}/>}/>
                 }
             }
         })
+    }
 
+    removeProduct = (product)=>{
+        var index = this.state.products.indexOf(product)
+        console.log(product===this.state.products[index])
+        console.log(index)
+        var newList = [...this.state.products]
+        newList = newList.filter(item =>item !== product)
+        this.setState({products:newList})
+        firebase.database().ref(`table/${this.state.table}/pedidos`).set(newList)
     }
 
     render(){

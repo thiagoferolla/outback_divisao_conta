@@ -14,13 +14,20 @@ export default class AppBar extends Component {
         this.state = {open:false}
     }
 
+    button = ()=>{
+        if (this.props.page === 2){
+            return <ToolbarGroup onClick={this.next}>Fechar Conta<ArrowForward/></ToolbarGroup>
+        }
+        return <ToolbarGroup onClick={this.next}>Próximo<ArrowForward/></ToolbarGroup>
+    }
+
     render(){
 
         return (
             <div className='toolbar'>
                 <Toolbar style={{backgroundColor:'rgba(254,225,135,1)'}}>    
                     <ToolbarGroup onClick={this.back}><ArrowBack/>Voltar</ToolbarGroup>
-                    <ToolbarGroup onClick={this.next}>Próximo<ArrowForward/></ToolbarGroup>
+                    {this.button()}
                 </Toolbar>
                 <Snackbar style={{backgroundColor:'#d50000'}} open={this.state.open} message={'Nenhum cliente cadastrado'} 
                     autoHideDuration={4000}

@@ -9,7 +9,7 @@ import Inicio from './pages/inicio';
 import Page0 from './pages/page0'; 
 import Page1 from './pages/page1';
 import Page2 from './pages/page2';
-//import Page3 from './pages/page3';
+import Page3 from './pages/page3';
 import PageAdd from './pages/pageadd';
 
 injectTapEventPlugin();
@@ -36,6 +36,7 @@ class App extends Component {
             <Route path='/:tableId/0' component={Page0}/>
             <Route path='/:tableId/1' component={Page1}/>
             <Route path='/:tableId/2' component={Page2}/>
+            <Route path='/:tableId/3' component={Page3}/>
             <Route path='/:tableId/add/:name' component={PageAdd}/>
           </div>
         </Router>

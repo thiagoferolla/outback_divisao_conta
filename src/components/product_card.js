@@ -5,9 +5,10 @@ import FlatButton from 'material-ui/FlatButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import firebase from 'firebase';
+import Snackbar from 'material-ui/Snackbar';
 
 export default class PCard extends React.Component {
-    state = {values:[], user:[]}
+    state = {values:[], open:false}
     names = this.props.names
     default_user = this.props.dUser
     table = this.props.table
@@ -25,19 +26,10 @@ export default class PCard extends React.Component {
         
     }
 
-    getUser = ()=>{
-        const self = this
-        firebase.database().ref(`table/${this.state.table}/user`).on('value', function(users){
-            if (users.val() != null){
-            self.setState({user:users.val()})} else {
-                self.setState({user:[]})
-            }
-        })
-    }
-
     addItem = () => {
         var pessoas = [...this.state.values, this.default_user]
         var preco = parseFloat(this.props.price/(pessoas.length)).toFixed(2)
+        this.setState({open:true})
         firebase.database().ref(`table/${this.table}/pedidos`).push({product:this.props.title, users:pessoas, preco:preco})
         
     }
@@ -55,6 +47,11 @@ export default class PCard extends React.Component {
                             <FlatButton label='Adicionar' onClick={()=>this.addItem()}/>
                     </CardActions>
                 </Card>
+                <Snackbar
+                    open={this.state.open}
+                    message='Produto Adicionado'
+                    autoHideDuration={1000}
+                    onRequestClose={()=>this.setState({open:false})}/>
             </div>
         )
     }
