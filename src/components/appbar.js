@@ -18,7 +18,7 @@ export default class AppBar extends Component {
 
         return (
             <div className='toolbar'>
-                <Toolbar>
+                <Toolbar style={{backgroundColor:'rgba(254,225,135,1)'}}>    
                     <ToolbarGroup onClick={this.back}><ArrowBack/>Voltar</ToolbarGroup>
                     <ToolbarGroup onClick={this.next}>Próximo<ArrowForward/></ToolbarGroup>
                 </Toolbar>
@@ -32,6 +32,9 @@ export default class AppBar extends Component {
 
     next(){
         firebase.database().ref(`table/${this.props.table}/user`).once('value').then((users)=>{
+            if (this.props.page===0){
+                return (window.location = 1)
+            }
             if (users.val()===null){
                 this.setState({open:true})}
                 else {
@@ -42,7 +45,7 @@ export default class AppBar extends Component {
     }
 
     back(){
-        if (this.props.page===1){
+        if (this.props.page===0){
             return window.location = '../'
         }
     
@@ -50,15 +53,6 @@ export default class AppBar extends Component {
         return (window.location=url)
     }
 
-    have_user(){
-        firebase.database().ref(`table/${this.props.table}/user`).once('value').then((users)=>{
-            if (users.val() === null){
-                return false
-            } else {
-                return true
-            }
-        })
 
-    }
 
 } 

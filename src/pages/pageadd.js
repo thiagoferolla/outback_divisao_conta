@@ -5,6 +5,8 @@ import Cardapio from '../assets/cardapio';
 import PCard from '../components/product_card';
 import { Card, CardHeader } from 'material-ui/Card';
 import firebase from 'firebase';
+import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
+import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 
 export default class Page2 extends Component{
     constructor(props){
@@ -50,6 +52,7 @@ export default class Page2 extends Component{
     render(){
         return (
             <div>
+                <div>
                 {Cardapio.map(category => {return (
                     <Card>
                         <CardHeader style={subHeader} title={category.name} actAsExpander={true} showExpandableButton={true}/>
@@ -58,6 +61,14 @@ export default class Page2 extends Component{
                         </div>
                     </Card>
                 )})}
+                </div>
+                <div style={{height:50}}></div>
+
+                <div className='toolbar'>
+                    <Toolbar>
+                        <ToolbarGroup onClick={()=>{return window.location='../2'}}><ArrowBack/>Voltar</ToolbarGroup>
+                    </Toolbar>
+                </div>
             </div>
         )
     }

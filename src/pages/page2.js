@@ -3,7 +3,9 @@ import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import AppBar from '../components/appbar';
 import FlatButton from 'material-ui/FlatButton';
+import RemoveCircle from 'material-ui/svg-icons/content/remove-circle';
 import * as firebase from 'firebase';
+import { red500 } from 'material-ui/styles/colors';
 
 export default class Page2 extends Component{
     constructor(props){
@@ -35,7 +37,9 @@ export default class Page2 extends Component{
         return this.state.products.map((product)=>{
             for (var i=0; i<product.users.length; i++){
                 if (user === product.users[i]){
-                    return <ListItem primaryText={product.product} secondaryText={product.preco} disabled={true}/>
+                    return <ListItem style={{backgroundColor:'white'}}
+                            primaryText={product.product} secondaryText={product.preco} disabled={true}
+                            rightIcon={<RemoveCircle color={red500}/>}/>
                 }
             }
         })
@@ -50,7 +54,7 @@ export default class Page2 extends Component{
                         <div>
                             <Subheader style={subHeader}>{user.name}</Subheader>
                             {this.mapProducts(user.name)}
-                            <FlatButton onClick={()=>window.location=`add/${user.name}`} fullWidth={true} label='Adicionar items' primary={true} style={btnStyle} />
+                            <FlatButton backgroundColor='white' onClick={()=>window.location=`add/${user.name}`} fullWidth={true} label='Adicionar items' primary={true} style={btnStyle} />
                         </div>
                     )})}
                 </List>

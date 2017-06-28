@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import Inicio from './pages/inicio'; 
+import Inicio from './pages/inicio';
+import Page0 from './pages/page0'; 
 import Page1 from './pages/page1';
 import Page2 from './pages/page2';
 //import Page3 from './pages/page3';
@@ -32,6 +33,7 @@ class App extends Component {
           <div>
             <Route exact path='/' component={Inicio}/>
             <Route exact path='/:tableId/' component={Page1}/>
+            <Route path='/:tableId/0' component={Page0}/>
             <Route path='/:tableId/1' component={Page1}/>
             <Route path='/:tableId/2' component={Page2}/>
             <Route path='/:tableId/add/:name' component={PageAdd}/>

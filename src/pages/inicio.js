@@ -12,7 +12,7 @@ export default class Page2 extends Component{
                 </div>
                 <div style={{marginLeft:'10%', marginRight:'10%', textAlign:'center'}}>
                     <p> Crie uma Mesa </p>
-                    <RaisedButton primary={true} label='Iniciar' onTouchTap={()=>this.check_in()} style={btn_style}/>
+                    <RaisedButton backgroundColor='#2196F3' primary={true} label='Iniciar' onTouchTap={()=>this.check_in()} style={btn_style}/>
                     <p>ou entre em uma.</p>
                 </div>
             </div>
@@ -22,7 +22,7 @@ export default class Page2 extends Component{
     check_in(){
         console.log(true)
         firebase.auth().signInAnonymously().then((user)=>{
-            const url = ("/"+user.uid+'/1')
+            const url = ("/"+user.uid+'/0')
             firebase.database().ref('table/'+user.uid).set({
                 id:user.uid
             }).then(()=>{
@@ -37,17 +37,6 @@ const btn_style = {
     width: '80%',
     height:'60'
 }
-
-/*const img_style = {
-    position:'fixed',
-    left: '20%',
-    top:'20%',
-    alignSelf:'center',
-    width: '40%',
-    height:'40%',
-    marginLeft:'10%',
-    marginRight:'10%'
-}*/
 
 const img_style = {
     height:'80%',
