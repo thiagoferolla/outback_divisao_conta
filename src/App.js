@@ -10,7 +10,9 @@ import Page0 from './pages/page0';
 import Page1 from './pages/page1';
 import Page2 from './pages/page2';
 import Page3 from './pages/page3';
-import PageAdd from './pages/pageadd';
+//import PageAdd from './pages/pageadd';
+import NewPageAdd from './pages/new_pageadd'; 
+import ProductPage from './pages/product_page';
 
 injectTapEventPlugin();
 
@@ -32,12 +34,12 @@ class App extends Component {
         <Router>
           <div>
             <Route exact path='/' component={Inicio}/>
-            <Route exact path='/:tableId/' component={Page1}/>
             <Route path='/:tableId/0' component={Page0}/>
             <Route path='/:tableId/1' component={Page1}/>
             <Route path='/:tableId/2' component={Page2}/>
             <Route path='/:tableId/3' component={Page3}/>
-            <Route path='/:tableId/add/:name' component={PageAdd}/>
+            <Route exact path='/:tableId/add/:name' component={NewPageAdd}/>
+            <Route exact path='/:tableId/add/:name/:category' component={ProductPage}/>
           </div>
         </Router>
       </MuiThemeProvider>

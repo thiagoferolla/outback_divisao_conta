@@ -23,6 +23,8 @@ export default class Page2 extends Component{
         this.getUser()
     }
 
+    
+
     getUser=()=>{
         var self = this
         firebase.database().ref(`table/${this.state.table}/user`).on('value', function(users){

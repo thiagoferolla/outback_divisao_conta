@@ -18,6 +18,7 @@ export default class Page1 extends Component {
 
     componentDidMount = ()=>{
         this.getUsers()
+        this.check_in()
     }
 
     getUsers = ()=>{
@@ -75,5 +76,13 @@ export default class Page1 extends Component {
                     <AppBar table={this.state.table} page={1}/>
                 </div>
         )
+    }
+
+    check_in(){
+        firebase.auth().signInAnonymously().then((user)=>{
+            console.log(true)
+        }).catch((err)=>{
+            console.log(err)
+        })
     }
 }

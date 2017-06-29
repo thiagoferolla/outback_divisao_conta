@@ -2,6 +2,7 @@
   "name": "mvp",
   "version": "0.1.0",
   "private": true,
+  "homepage":"https://orderapp.site",
   "dependencies": {
     "firebase": "^4.1.2",
     "material-ui": "^0.18.3",

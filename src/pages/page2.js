@@ -16,9 +16,7 @@ export default class Page2 extends Component{
     componentDidMount(){
         this.getUsers()
         firebase.database().ref(`table/${this.state.table}/pedidos`).on('value', (products)=>{
-            for (var i in products.val()){
-                this.setState({products: [...this.state.products, products.val()[i]]})
-            }
+            this.setState({products: products.val()})
         })
     }
 
@@ -26,6 +24,7 @@ export default class Page2 extends Component{
         const self = this
         firebase.database().ref(`table/${this.state.table}/user`).on('value', function(users){
             if (users.val() != null){
+                console.log(users.val())
             self.setState({user:users.val()})} else {
                 self.setState({user:[]})
             }
@@ -50,6 +49,7 @@ export default class Page2 extends Component{
         console.log(index)
         var newList = [...this.state.products]
         newList = newList.filter(item =>item !== product)
+        console.log(newList)
         this.setState({products:newList})
         firebase.database().ref(`table/${this.state.table}/pedidos`).set(newList)
     }
