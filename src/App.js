@@ -10,7 +10,6 @@ import Page0 from './pages/page0';
 import Page1 from './pages/page1';
 import Page2 from './pages/page2';
 import Page3 from './pages/page3';
-//import PageAdd from './pages/pageadd';
 import NewPageAdd from './pages/new_pageadd'; 
 import ProductPage from './pages/product_page';
 

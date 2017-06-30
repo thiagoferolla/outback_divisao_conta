@@ -1,88 +1,20 @@
 import React, { Component } from 'react';
-import AppBar from '../components/appbar';
-import TextField from 'material-ui/TextField';
-import { List, ListItem } from 'material-ui/List';
-import IconButton from 'material-ui/IconButton'
-import Add from 'material-ui/svg-icons/content/add';
-import Close from 'material-ui/svg-icons/navigation/close';
-import * as firebase from 'firebase';
+import { Toolbar } from 'material-ui/Toolbar';
+import AppBar from '../components/appbar'
 
 export default class Page1 extends Component {
-    constructor(props){
-        super(props)
-        this.state = {table: this.props.match.params.tableId, inputValue:'', users:[]}
-        this.onInputChange = this.onInputChange.bind(this);
-        this.addUser = this.addUser.bind(this);
-        this.getUsers = this.getUsers.bind(this);
-    }
-
-    componentDidMount = ()=>{
-        this.getUsers()
-        this.check_in()
-    }
-
-    getUsers = ()=>{
-        const self = this
-        firebase.database().ref(`table/${this.state.table}/user`).on('value', function(users){
-            if (users.val() != null){
-            self.setState({users:users.val()})} else {
-                self.setState({user:[]})
-            }
-        })
-    }
-
-    removeUser = (user)=>{
-        var users = this.state.users;
-        for (var i=0; i<users.length; i++){
-            if (users[i].name===user){
-                users.splice(i,1)
-                firebase.database().ref(`table/${this.state.table}`).set({user:users})
-            }
-        }
-    }
-
-    addUser = async () =>{
-        var newUser = {name:this.state.inputValue, products:[]}
-        await this.setState({users:[...this.state.users, newUser]})
-        console.log(this.state.users)
-        firebase.database().ref(`table/${this.state.table}/user`).set(this.state.users)
-        this.setState({inputValue:''})
-    }
-
-    onInputChange(event) {
-        this.setState({inputValue: event.target.value})
-    }
 
     render(){
         return (
-                <div>
-                    <div style={{textAlign:'center'}}>
-                        <TextField value={this.state.inputValue} floatingLabelText="Adicionar Cliente"
-                            onChange={this.onInputChange} />
-                        <IconButton>
-                            <Add onClick={()=>this.addUser()}/>
-                        </IconButton>
-                    </div>
-                    <div>
-                        <List>
-                            {this.state.users.map((user)=>{
-                                return (
-                                    <ListItem key={user.name} rightIcon={<Close onClick={()=>this.removeUser(user.name)}/>} primaryText={user.name} disabled/>
-                                )
-                            })}
-                        </List>
-                    </div>
-                    
-                    <AppBar table={this.state.table} page={1}/>
+            <div>
+                <Toolbar style={{backgroundColor:'rgba(62,39,35,1)'}}>
+                    <p style={{width:'100%', textAlign:'left', color:'rgba(249,168,37,1)', fontSize:18}}><span style={{fontWeight:'bold', fontSize:25}}>order</span> | instruções</p>
+                </Toolbar>
+                <div style={{width:'90%', marginLeft:'5%', marginRight:'5%'}}>
+                    <p style={{color:'rgba(254,225,135,1)', fontSize:18, textAlign:"justify"}}>Conforme você for pedindo, registre no order quais pratos e com quem foram divididos para saber quanto cada um vai pagar no final</p>
                 </div>
+                <AppBar page={1}/>
+            </div>
         )
     }
-
-    check_in(){
-        firebase.auth().signInAnonymously().then((user)=>{
-            console.log(true)
-        }).catch((err)=>{
-            console.log(err)
-        })
-    }
-}
+} 

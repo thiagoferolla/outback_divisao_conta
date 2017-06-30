@@ -7,12 +7,12 @@ export default class Page2 extends Component{
         return (
             <div className='maindiv' >
                 <div style={{marginLeft:'10%', marginRight:'10%', textAlign:'center'}}>
-                    <h1 style={{fontWeight:'bold', fontFamily:'Dancing Script', fontSize:72, margin: 0, marginTop:25}}>Order</h1>
+                    <h1 style={{fontWeight:'bold', fontFamily:'Montserrat', fontSize:72, margin: 0, marginTop:25}}>order</h1>
                     <img alt='' src='https://image.flaticon.com/icons/svg/227/227337.svg' style={img_style}/>
                 </div>
                 <div style={{marginLeft:'10%', marginRight:'10%', textAlign:'center', marginBottom:10}}>
-                    <p style={{color:'white', fontFamily:'Dancing Script', fontSize:30}}> Crie uma Mesa e convide seus amigos para calcular sua conta sem esforço </p>
-                    <RaisedButton backgroundColor='#2196F3' primary={true} label='Iniciar' onTouchTap={()=>this.check_in()} style={btn_style}/>
+                    <p style={{color:'rgba(249,168,37,1)', fontWeight:100 ,fontFamily:'Open Sans', fontSize:20, textAlign:'left'}}> Crie uma mesa, convide seus amigos e <span style={{fontWeight:"bold"}}>acabe com a confusão na hora da conta </span></p>
+                    <RaisedButton backgroundColor='rgba(249,168,37,1)' label='Iniciar' onTouchTap={()=>this.check_in()} style={btn_style}/>
                 </div>
             </div>
         )
@@ -32,7 +32,7 @@ export default class Page2 extends Component{
 }
 
 const btn_style = {
-    width: '80%',
+    width: '100%',
     height:'60'
 }
 

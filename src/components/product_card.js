@@ -28,7 +28,7 @@ export default class PCard extends React.Component {
 
     addItem = () => {
         var pessoas = [...this.state.values, this.default_user]
-        var preco = parseFloat(this.props.price/(pessoas.length)).toFixed(2)
+        var preco = parseFloat(this.props.price/1).toFixed(2)
         this.setState({open:true})
         firebase.database().ref(`table/${this.table}/pedidos`).push({product:this.props.title, users:pessoas, preco:preco})
         

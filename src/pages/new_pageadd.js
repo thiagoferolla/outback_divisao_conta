@@ -3,6 +3,8 @@ import Cardapio from '../assets/cardapio';
 import { List, ListItem } from 'material-ui/List';
 import ArrowForward from 'material-ui/svg-icons/navigation/arrow-forward';
 import Avatar from 'material-ui/Avatar';
+import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
+import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
 
 
 export default class Pageadd extends Component{
@@ -12,12 +14,12 @@ export default class Pageadd extends Component{
     }
 
     launchCategory = (category)=>{
-        window.location = `${category}`
+        window.location = `${this.state.default_user}/${category}`
     }
 
     mapCategories = ()=>{
         return Cardapio.map((category)=>{
-            return <ListItem style={{backgroundColor:'white'}} primaryText={category.name}
+            return <ListItem style={{color:'white' ,backgroundColor:'rgba(62,39,35,1)', borderStyle:'solid', borderWidth:1, borderColor:'rgba(254,225,135,1)'}} primaryText={category.name}
                     leftAvatar={<Avatar src={category.image}/>}
                     rightIcon={<ArrowForward/>} onTouchTap={()=>this.launchCategory(category.name)}/>
         })
@@ -25,9 +27,19 @@ export default class Pageadd extends Component{
 
     render(){
         return (
-            <List>
-                {this.mapCategories()}
-            </List>
+            <div>
+                <Toolbar style={{backgroundColor:'rgba(62,39,35,1)'}}>
+                    <p style={{width:'100%', textAlign:'left', color:'rgba(249,168,37,1)', fontSize:18}}><span style={{fontWeight:'bold', fontSize:25}}>order</span> | menu</p>
+                </Toolbar>
+                <List style={{width:'90%', marginLeft:'5%'}}>
+                    {this.mapCategories()}
+                </List>
+                <div className='toolbar'>
+                    <Toolbar style={{backgroundColor:'rgba(254,225,135,1)'}}>    
+                        <ToolbarGroup onClick={()=>window.location='./../2'}><ArrowBack/>Voltar</ToolbarGroup>
+                    </Toolbar>
+                </div>
+            </div>
         )
     }
 }

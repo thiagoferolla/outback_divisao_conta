@@ -33,7 +33,11 @@ export default class UserCard extends Component {
         var product = this.state.products;
         for (var i in product){
             if (product[i].users.indexOf(this.props.user.name) !== -1){
-                var price = +product[i].preco
+                if (product[i].users.length === 1){
+                    var price = (product[i].preco/1).toFixed(2)
+                } else {
+                    var price = (product[i].preco/product[i].users.length)
+                }
                 this.setState({price: this.state.price + price})
             }
         }
@@ -50,7 +54,6 @@ export default class UserCard extends Component {
                 list = [...list, this.state.products[i]]
             }
         }
-        console.log(list)
         return list.map((product)=>{
             var price = product.preco
             return <ListItem primaryText={product.product} secondaryText={price}/>
