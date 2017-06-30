@@ -5,6 +5,7 @@ import ArrowForward from 'material-ui/svg-icons/navigation/arrow-forward';
 import Avatar from 'material-ui/Avatar';
 import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
+import TabBar from '../components/tabbar';
 
 
 export default class Pageadd extends Component{
@@ -34,11 +35,8 @@ export default class Pageadd extends Component{
                 <List style={{width:'90%', marginLeft:'5%'}}>
                     {this.mapCategories()}
                 </List>
-                <div className='toolbar'>
-                    <Toolbar style={{backgroundColor:'rgba(254,225,135,1)'}}>    
-                        <ToolbarGroup onClick={()=>window.location='./../2'}><ArrowBack/>Voltar</ToolbarGroup>
-                    </Toolbar>
-                </div>
+                <div style={{height:50}}/>
+                <TabBar page='add'/>
             </div>
         )
     }

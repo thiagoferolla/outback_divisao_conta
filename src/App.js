@@ -8,6 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Inicio from './pages/inicio';
 import Page0 from './pages/page0'; 
 import Page1 from './pages/page1';
+import Page11 from './pages/page11';
 import Page2 from './pages/page2';
 import Page3 from './pages/page3';
 import NewPageAdd from './pages/new_pageadd'; 
@@ -34,6 +35,7 @@ class App extends Component {
           <div>
             <Route exact path='/' component={Inicio}/>
             <Route path='/:tableId/0' component={Page0}/>
+            <Route path='/:tableId/11' component={Page11}/>
             <Route path='/:tableId/1' component={Page1}/>
             <Route path='/:tableId/2' component={Page2}/>
             <Route path='/:tableId/3' component={Page3}/>

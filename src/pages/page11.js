@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppBar from '../components/appbar';
+import TabBar from '../components/tabbar';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
@@ -13,7 +13,7 @@ export default class Page0 extends Component {
     handleClose=()=>{this.setState({open:false})}
 
     render(){
-        var actions =[<FlatButton onTouchTap={()=>this.handleClose()} secondary={true} label='Fechar'/>, <CopyToClipboard text={this.link}><FlatButton primary={true} label='Copiar Link'/></CopyToClipboard>]
+        var actions =[<FlatButton secondary={true} onTouchTap={()=>this.handleClose()} label='Fechar'/>, <CopyToClipboard text={this.link}><FlatButton primary={true} label='Copiar Link'/></CopyToClipboard>]
 
         return (
             <div>
@@ -35,7 +35,7 @@ export default class Page0 extends Component {
                 </Dialog>
 
                 <div>
-                    <AppBar table={this.props.match.params.tableId} page={0}/>
+                    <TabBar/>
                 </div>
             </div>
         )

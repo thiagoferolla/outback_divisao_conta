@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { List, ListItem } from 'material-ui/List';
-import AppBar from '../components/appbar';
+import TabBar from '../components/tabbar';
 import FlatButton from 'material-ui/FlatButton';
 import RemoveCircle from 'material-ui/svg-icons/content/remove-circle';
 import firebase from 'firebase';
@@ -136,7 +136,7 @@ export default class Page2 extends Component{
                 </List>
                 </div>
                 <div style={{height:50}}></div>
-                <AppBar table={this.state.table} page={2}/>
+                <TabBar table={this.state.table} page={2}/>
             </div>
         )
     }

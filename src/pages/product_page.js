@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Cardapio from '../assets/cardapio';
 import PCard from '../components/product_card';
 import firebase from 'firebase';
+import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
+import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 
 export default class ProductPage extends Component {
     constructor(props){
@@ -57,6 +59,9 @@ export default class ProductPage extends Component {
                 <div>
                     {this.mapProducts()}
                     <div style={{height:55}}/>
+                    <Toolbar className='toolbar' style={{backgroundColor:'rgba(249,168,37,1)'}}>
+                        <ToolbarGroup onClick={()=>window.location='./'}><ArrowBack/>Voltar</ToolbarGroup>
+                    </Toolbar>
                 </div>
             )} return null
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import Final from '../components/user_final';
-import AppBar from '../components/appbar';
+import TabBar from '../components/tabbar';
 import { Toolbar } from 'material-ui/Toolbar';
 import { Card, CardTitle } from 'material-ui/Card';
 import { List, ListItem } from 'material-ui/List';
@@ -68,7 +68,7 @@ export default class Page3 extends Component {
                 
                 {this.finalCard()}
                 <div style={{height:50}}/>
-                <AppBar page={3}/>
+                <TabBar/>
             </div>
         )
     }
