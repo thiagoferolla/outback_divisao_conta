@@ -11,8 +11,8 @@ export default class Page2 extends Component{
                     <img alt='' src='https://image.flaticon.com/icons/svg/227/227337.svg' style={img_style}/>
                 </div>
                 <div style={{marginLeft:'10%', marginRight:'10%', textAlign:'center', marginBottom:10}}>
-                    <p style={{color:'rgba(249,168,37,1)', fontWeight:100 ,fontFamily:'Open Sans', fontSize:20, textAlign:'left'}}> Crie uma mesa, convide seus amigos e <span style={{fontWeight:"bold"}}>acabe com a confusão na hora da conta </span></p>
-                    <RaisedButton backgroundColor='rgba(249,168,37,1)' label='Iniciar' onTouchTap={()=>this.check_in()} style={btn_style}/>
+                    <p style={{color:'rgba(249,168,37,1)', fontWeight:100 ,fontFamily:'Open Sans', fontSize:20, textAlign:'left'}}> Crie uma mesa, convide seus amigos e <span style={{fontWeight:"bold"}}>divida a conta do melhor forma possível</span></p>
+                    <RaisedButton backgroundColor='rgba(249,168,37,1)' label='Criar Mesa' onTouchTap={()=>this.check_in()} style={btn_style}/>
                 </div>
             </div>
         )
@@ -38,6 +38,6 @@ const btn_style = {
 
 const img_style = {
     marginTop:0,
-    height:180,
-    width:180
+    height:130,
+    width:130
 }

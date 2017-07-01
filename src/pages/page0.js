@@ -20,7 +20,7 @@ export default class Page0 extends Component {
                 <div style={{textAlign:'center', width:'90%', marginLeft:'5%', marginRight:'5%', marginTop:'5%'}}>
                     <h2 style={{width: '100%', fontFamily:'Open Sans', fontWeight:900, color:"rgba(249,168,37,1)",
                         lineHeight:1.1, fontSize:32, textAlign:'center', margin:0}}>
-                        Chame seus e amigos pra sua mesa e divida a conta do seu jeito que você quiser
+                        Chame seus amigos pra a mesa e divida a conta do seu jeito que você quiser
                     </h2>
                     
                     <div style={{width:'100%', marginTop:'20%', height:'12%'}}>

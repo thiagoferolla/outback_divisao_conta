@@ -21,8 +21,13 @@ var Cardapio = [
     {name:'Acompanhamentos', image:'http://ot-foodspotting-production.s3.amazonaws.com/reviews/1470155/thumb_600.jpg?1332062041', produtos:[{name:'AUSSIE MAC N’ CHEESE', price:23.90}, {name:'ARROZ PILAF', price:23.90}, {name:'ARROZ TASMÂNIA', price:23.90}, {name:'BRÓCOLIS', price:23.90}, {name:'FRITAS', price:23.90},
         {name:'GARLIC MASHED POTATO', price:23.90}, {name:'HARVEST BROWN RICE', price:23.90}, {name:'HOMEMADE GOLDEN POTATO', price:23.90}, {name:'JACKET POTATO', price:23.90}, {name:'LEGUMES AO VAPOR', price:23.90}]},
 
-    {name:'Bebidas', image:'http://www.beerstuff.com.br/images/slides/big/CNCOTBK03.jpg?format=jpg&width=1280',produtos:[{name:'ICED TEA COM SABOR (REFIL)', price:10.50}, {name:'ICED TEA TRADICIONAL', price:9.75}, {name:'REFRIGERANTE (REFIL)', price:10.50}, {name:'SUCO DE TOMATE', price:10.50}, {name:'SUCO DEL VALLE', price:9.75},
-        {name:'SUCO LARAMORA', price:10.75}, {name:'SUCO OUTBACK', price:10.75}, {name:'SUCOS NATURAIS', price:10.75}, {name:'ÁGUA TÔNICA', price:8.75}, {name:'ÁGUA (COM OU SEM GÁS)', price:5.95}, {name:'SUPER MILKSHAKE', price:20.50}, {name:'CAFÉ EXPRESSO', price:5.50}]}
+    {name:'Bebidas', image:'http://www.beerstuff.com.br/images/slides/big/CNCOTBK03.jpg?format=jpg&width=1280',produtos:[{name:'REFRIGERANTE (REFIL)', price:10.50}, {name:'CHOPP BRAHMA 600ML', price:16.95}, {name:'CHOPP BRAHMA 340ML', price:9.95}, {name:'ICED TEA COM SABOR (REFIL)', price:10.50}, {name:'ICED TEA TRADICIONAL', price:9.75}, {name:'BUDWEISER LONG NECK', price:12.25}, {name:'STELLA ARTOIS LONG NECK', price:12.25},
+        {name:'CERVEJA NACIONAL LONG NECK', price:11.25}, {name:'BRAHMA 0,0% LONG NECK SEM ÁLCOOL', price:9.25}, {name:'SUCO DE TOMATE', price:10.50}, {name:'SUCO DEL VALLE', price:9.75},
+        {name:'SUCO LARAMORA', price:10.75}, {name:'SUCO OUTBACK', price:10.75}, {name:'SUCOS NATURAIS', price:10.75}, {name:'ÁGUA TÔNICA', price:8.75}, {name:'ÁGUA (COM OU SEM GÁS)', price:5.95}, {name:'SUPER MILKSHAKE', price:20.50}, {name:'CAFÉ EXPRESSO', price:5.50}]},
+
+    {name:'Sobremesas', image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY4TMujAnwDTD2BrJ2lHiauLV6fDaizVpP0S_0Y1OQnjJfiqPW', produtos:[{name:'CHOCOLATE THUNDER FROM DOWN UNDER ®', price:28.75}, {name:'CINNAMON OBLIVION', price:28.75}, {name:'CHEESECAKE', price:26.75}, 
+        {name:'SYDNEY’S SINFUL SUNDAE', price:23.75}, {name:'MILKSHAKE', price:17.50}, {name:'LAJOTINHA MAGMA CAKE', price:18.75}]}
 ]
+
 
 export default Cardapio

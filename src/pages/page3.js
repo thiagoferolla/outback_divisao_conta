@@ -5,6 +5,7 @@ import TabBar from '../components/tabbar';
 import { Toolbar } from 'material-ui/Toolbar';
 import { Card, CardTitle } from 'material-ui/Card';
 import { List, ListItem } from 'material-ui/List';
+import FlatButton from 'material-ui/FlatButton';
 
 export default class Page3 extends Component {
     state = {
@@ -41,18 +42,17 @@ export default class Page3 extends Component {
 
     finalCard = () =>{
         var precofinal = 0;
-        console.log(this.state.products)
         if (this.state.users.length !== 1 && this.state.products.length !== 0){
             return (
                 <Card style={{backgroundColor:'rgba(249,168,37,1)', marginLeft:10, marginRight:10, marginBottom:10, marginTop:5}}>
                     <CardTitle title='Total'/>
                     <List>
                         {this.state.products.map((product)=>{
-                            precofinal = precofinal + product.preco
-                            return <ListItem primaryText={product.product} secondaryText={product.preco}/>
+                            precofinal = +precofinal + +product.preco
+                            return <ListItem primaryText={product.product} secondaryText={precofinal}/>
                         })}
                     </List>
-                    <CardTitle style={{textAlign:'center'}} title={'Total: '+ parseFloat(precofinal).toFixed(2)} subtitle='(Gorjeta não incluida)'/>
+                    <CardTitle style={{textAlign:'center'}} title={'Total: '+ parseFloat(precofinal).toFixed(2)} subtitle='(Serviço não incluido)'/>
                 </Card>
             )
         }
@@ -67,6 +67,7 @@ export default class Page3 extends Component {
                 {this.state.users.map(user=><Final user={user} table={this.props.match.params.tableId}/>)}
                 
                 {this.finalCard()}
+                <FlatButton onTouchTap={()=>window.location='./4'} style={{color:'white', width:'100%', marginLeft:'10', marginRight:'10'}} label='Fechar Mesa' backgroundColor='#D32F2F'/>
                 <div style={{height:50}}/>
                 <TabBar/>
             </div>

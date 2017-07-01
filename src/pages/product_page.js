@@ -57,6 +57,9 @@ export default class ProductPage extends Component {
         if ((this.state.shareUser!==[] && this.state.users.length>1) || (this.state.users.length===1)){
             return (
                 <div>
+                    <Toolbar style={{backgroundColor:'rgba(62,39,35,1)'}}>
+                        <p style={{width:'100%', textAlign:'left', color:'rgba(249,168,37,1)', fontSize:18}}><span style={{fontWeight:'bold', fontSize:25}}>order</span> | menu | {this.state.category}</p>
+                    </Toolbar>
                     {this.mapProducts()}
                     <div style={{height:55}}/>
                     <Toolbar className='toolbar' style={{backgroundColor:'rgba(249,168,37,1)'}}>

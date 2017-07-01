@@ -3,9 +3,10 @@ import {Card, CardHeader, CardTitle, CardActions } from 'material-ui/Card';
 import Slider from 'material-ui/Slider';
 import firebase from 'firebase';
 import {ListItem} from 'material-ui/List';
+import FlatButton from 'material-ui/FlatButton';
 
 export default class UserCard extends Component {
-    state={slider:10, products:[], price:0}
+    state={slider:10, products:[], price:0.00}
 
     componentWillMount = ()=>{
         this.getProducts()
@@ -36,9 +37,11 @@ export default class UserCard extends Component {
                 if (product[i].users.length === 1){
                     var price = (product[i].preco/1).toFixed(2)
                 } else {
-                    var price = (product[i].preco/product[i].users.length)
+                    var price = (product[i].preco/product[i].users.length).toFixed(2)
                 }
-                this.setState({price: this.state.price + price})
+                console.log(price)
+                console.log(this.state.price)
+                this.setState({price: this.state.price + +price})
             }
         }
     }
@@ -68,12 +71,12 @@ export default class UserCard extends Component {
                     {this.mapProducts()}
                 </div>
                 <CardActions>
-                    <p style={{fontWeight:100}}>Gorjeta: {this.state.slider}%</p>
+                    <p style={{fontWeight:100}}>Serviço: {this.state.slider}%</p>
                     <Slider style={{height: 10,margin:0, padding:0}} step={1} min={0} max={30} value={this.state.slider} onChange={this.handleSlider}/>
                 </CardActions>
                 <div style={{paddingLeft:50, paddingRight:50}}>
                     <p>Preço: {this.state.price}</p>
-                    <p>Gorjeta: {this.gorjeta()}</p><hr/>
+                    <p>Serviço: {this.gorjeta()}</p><hr/>
                 </div>
                 <CardTitle style={{textAlign:'center'}} title={`Total: ${this.preco_final()}`}/>
             </Card>

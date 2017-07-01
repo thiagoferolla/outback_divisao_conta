@@ -11,6 +11,7 @@ import Page1 from './pages/page1';
 import Page11 from './pages/page11';
 import Page2 from './pages/page2';
 import Page3 from './pages/page3';
+import Page4 from  './pages/page4';
 import NewPageAdd from './pages/new_pageadd'; 
 import ProductPage from './pages/product_page';
 
@@ -39,6 +40,7 @@ class App extends Component {
             <Route path='/:tableId/1' component={Page1}/>
             <Route path='/:tableId/2' component={Page2}/>
             <Route path='/:tableId/3' component={Page3}/>
+            <Route path='/:tableId/4' component={Page4}/>
             <Route exact path='/:tableId/add/:name' component={NewPageAdd}/>
             <Route exact path='/:tableId/add/:name/:category' component={ProductPage}/>
           </div>
